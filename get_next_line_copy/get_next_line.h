@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/02 22:03:39 by ageels        #+#    #+#                 */
-/*   Updated: 2022/03/02 22:04:07 by ageels        ########   odam.nl         */
+/*   Updated: 2022/03/14 17:46:40 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <stdlib.h>
-# include <stdio.h>
 # define BUFFER_SIZE 4
 
 char	*get_next_line(int fd);

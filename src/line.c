@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.42.fr>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/11 18:18:27 by ageels        #+#    #+#                 */
-/*   Updated: 2022/03/02 21:17:10 by ageels        ########   odam.nl         */
+/*   Updated: 2022/03/14 17:49:16 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ void	ft_line(t_img *img, t_map *mapdata)
 	float		xd;
 	float		yd;
 	float		mn[2];
-	int			mypoint[2];
-	float		basey;
 
 	xd = mapdata->xb - mapdata->xa;
 	yd = mapdata->yb - mapdata->ya;

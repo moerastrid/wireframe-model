@@ -6,21 +6,21 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/25 17:09:14 by ageels        #+#    #+#                 */
-/*   Updated: 2022/03/02 21:48:50 by ageels        ########   odam.nl         */
+/*   Updated: 2022/03/14 18:17:17 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdflib.h"
 
-void	ft_isometric(int *x, int *y, int z, int steepness)
+void	ft_isometric(int *x, int *y, int z, t_map *m)
 {
 	int	previous_x;
 	int	previous_y;
 
 	previous_x = *x;
 	previous_y = *y;
-	*x = (previous_x - previous_y) * cos(0.523599);
-	*y = -(z * steepness * 0.3) + (previous_x + previous_y) * sin(0.523599);
+	*x = (previous_x - previous_y) * cos(m->angle);
+	*y = -(z * m->steepness * 0.3) + (previous_x + previous_y) * sin(m->angle);
 }
 
 void	ft_math_hor(int i, int j, t_map *mapdata, int **map)
@@ -29,10 +29,10 @@ void	ft_math_hor(int i, int j, t_map *mapdata, int **map)
 	mapdata->yb = j * mapdata->zoom;
 	mapdata->xa = i * mapdata->zoom;
 	mapdata->xb = (i + 1) * mapdata->zoom;
-	ft_isometric(&mapdata->xa, &mapdata->ya, map[j][i], mapdata->steepness);
+	ft_isometric(&mapdata->xa, &mapdata->ya, map[j][i], mapdata);
 	mapdata->xa += mapdata->offsetx;
 	mapdata->ya += mapdata->offsety;
-	ft_isometric(&mapdata->xb, &mapdata->yb, map[j][i + 1], mapdata->steepness);
+	ft_isometric(&mapdata->xb, &mapdata->yb, map[j][i + 1], mapdata);
 	mapdata->xb += mapdata->offsetx;
 	mapdata->yb += mapdata->offsety;
 }
@@ -43,10 +43,10 @@ void	ft_math_ver(int i, int j, t_map *mapdata, int **map)
 	mapdata->yb = (j + 1) * mapdata->zoom;
 	mapdata->xa = i * mapdata->zoom;
 	mapdata->xb = i * mapdata->zoom;
-	ft_isometric(&mapdata->xa, &mapdata->ya, map[j][i], mapdata->steepness);
+	ft_isometric(&mapdata->xa, &mapdata->ya, map[j][i], mapdata);
 	mapdata->xa += mapdata->offsetx;
 	mapdata->ya += mapdata->offsety;
-	ft_isometric(&mapdata->xb, &mapdata->yb, map[j + 1][i], mapdata->steepness);
+	ft_isometric(&mapdata->xb, &mapdata->yb, map[j + 1][i], mapdata);
 	mapdata->xb += mapdata->offsetx;
 	mapdata->yb += mapdata->offsety;
 }

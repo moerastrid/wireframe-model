@@ -1,5 +1,5 @@
 NAME := fdf
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -g -Wall -Werror -Wextra
 SRC = src/main.c\
 	src/fill.c\
 	src/wrap.c\
@@ -27,13 +27,13 @@ libmlx42.a :
 
 obj/%.o: src/%.c
 	@mkdir -p $(dir $@)
-	$(CC) -Imlx -o $@ -c $< -I MLX42/include -I ./
+	$(CC) $(CFLAGS) -Imlx -o $@ -c $< -I MLX42/include -I ./
 
 $(NAME) : $(OBJ) libmlx42.a
 	$(CC) $(OBJ) libmlx42.a -lglfw -L "/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
 
 clean:
-	@test -e obj && rm -fr obj && rm -fr libmlx42.a || echo "$(GREEN)clean: No objects to clean$(RESET)"''
+	@test -e obj && rm -fr obj && rm -fr libmlx42.a && make fclean -C MLX42/ || echo "$(GREEN)clean: No objects to clean$(RESET)"''
 
 fclean : clean
 	rm -f $(NAME)

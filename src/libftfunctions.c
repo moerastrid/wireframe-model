@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.42.fr>                +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/11 17:51:10 by ageels        #+#    #+#                 */
-/*   Updated: 2022/02/25 15:23:29 by ageels        ########   odam.nl         */
+/*   Updated: 2022/03/14 17:42:40 by ageels        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,3 +92,4 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		a++;
 	return (((const unsigned char *)s1)[a] - ((const unsigned char *)s2)[a]);
 }
+
